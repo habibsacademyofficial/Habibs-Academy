@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habib's Academy | A Complete Solution For Business Studies</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --primary-teal: #00b4d8;
+            --primary-green: #70e000;
+            --primary-yellow: #ffb703;
+            --primary-orange: #fb8500;
+            --primary-pink: #e63946;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, #0066cc, #00b4d8, #70e000, #ffb703, #e63946);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navbar */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* CSS Logo Representation matching uploaded logo */
+        .logo-icon {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 35px;
+        }
+
+        .logo-bar {
+            width: 8px;
+            border-radius: 4px;
+        }
+        .bar-1 { height: 60%; background: var(--primary-blue); }
+        .bar-2 { height: 80%; background: var(--primary-teal); }
+        .bar-3 { height: 100%; background: var(--primary-green); }
+        .bar-4 { height: 100%; background: var(--primary-yellow); }
+        .bar-5 { height: 80%; background: var(--primary-orange); }
+        .bar-6 { height: 60%; background: var(--primary-pink); }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 0.65rem;
+            color: var(--primary-yellow);
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-yellow);
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s transform, 0.3s box-shadow;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-teal));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+            color: #000;
+            box-shadow: 0 4px 15px rgba(251, 133, 0, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-teal);
+            color: var(--text-light);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-teal);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 20px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: rgba(255, 183, 3, 0.15);
+            color: var(--primary-yellow);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 183, 3, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .highlight-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .main-card-glow {
+            width: 320px;
+            height: 380px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-card-glow::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: var(--accent-gradient);
+            z-index: -1;
+            border-radius: 26px;
+            filter: blur(10px);
+            opacity: 0.6;
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+        }
+
+        /* General Section Layout */
+        .section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Features / Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-teal);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .course-header {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0,102,204,0.2), rgba(0,180,216,0.1));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .course-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-pink);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .course-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .course-features li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-features li i {
+            color: var(--primary-green);
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-yellow);
+        }
+
+        /* Instructors Section */
+        .instructor-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .instructor-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: var(--accent-gradient);
+            padding: 3px;
+        }
+
+        .instructor-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--dark-bg);
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-teal);
+        }
+
+        /* Footer */
+        footer {
+            background: #080d1a;
+            padding: 50px 20px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-teal);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-buttons { justify-content: center; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .contact-box { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-container">
+                <div class="logo-icon">
+                    <div class="logo-bar bar-1"></div>
+                    <div class="logo-bar bar-2"></div>
+                    <div class="logo-bar bar-3"></div>
+                    <div class="logo-bar bar-4"></div>
+                    <div class="logo-bar bar-5"></div>
+                    <div class="logo-bar bar-6"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>Habib's Academy</h1>
+                    <span>A COMPLETE SOLUTION FOR BUSINESS STUDIES</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#instructors">Instructors</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#courses" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> Best Business Studies Platform</span>
+            <h1>গড়ে তোলো তোমার <br><span class="highlight-text">বিজনেস স্টাডিজের</span> ভবিষ্যৎ</h1>
+            <p>HSC ও বিশ্ব‌বিদ্যালয় ভর্তি পরীক্ষার সেরা প্রস্তুতি নাও অভিজ্ঞ শিক্ষক ও প্রফেশনাল গাইডলাইনের মাধ্যমে। কনসেপ্ট ক্লিয়ারিং থেকে মডেল টেস্ট—সব কিছু একই ছাদের নিচে!</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Explore Courses</a>
+                <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Contact Us</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="main-card-glow">
+                <div class="logo-icon" style="height: 60px; margin-bottom: 15px;">
+                    <div class="logo-bar bar-1" style="width: 12px;"></div>
+                    <div class="logo-bar bar-2" style="width: 12px;"></div>
+                    <div class="logo-bar bar-3" style="width: 12px;"></div>
+                    <div class="logo-bar bar-4" style="width: 12px;"></div>
+                    <div class="logo-bar bar-5" style="width: 12px;"></div>
+                    <div class="logo-bar bar-6" style="width: 12px;"></div>
+                </div>
+                <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">HABIB'S ACADEMY</h2>
+                <p style="color: var(--primary-yellow); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px;">Learn • Grow • Succeed</p>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: 100%;">
+                    <p style="font-size: 0.85rem; color: var(--text-light);"><i class="fa-solid fa-check-circle" style="color: var(--primary-green);"></i> 100% Concept Clarity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h2>১০০০+</h2>
+                <p>সফল শিক্ষার্থী</p>
+            </div>
+            <div class="stat-item">
+                <h2>৯৮%</h2>
+                <p>পাস ও সাফল্য হার</p>
+            </div>
+            <div class="stat-item">
+                <h2>৫০+</h2>
+                <p>ফ্রি লেকচার ও নোটস</p>
+            </div>
+            <div class="stat-item">
+                <h2>২৪/৭</h2>
+                <p>ডাউট সলভিং সাপোর্ট</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section" id="why-us">
+        <div class="section-title">
+            <h2>কেন হাবিব'স একাডেমি বেছে নেবে?</h2>
+            <p>বিজনেস স্টাডিজ ব্যাকগ্রাউন্ডের শিক্ষার্থীদের জন্য আমাদের বিশেষ আয়োজন</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(0, 102, 204, 0.15); color: var(--primary-blue);">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <h3>লাইভ ইন্টারঅ্যাক্টিভ ক্লাস</h3>
+                <p>প্রতিটি সাবজেক্টের জুম বা সিক্রেট গ্রুপে লাইভ ক্লাস ও সরাসরি প্রশ্ন করার সুবিধা।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(112, 224, 0, 0.15); color: var(--primary-green);">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <h3>হিসাববিজ্ঞান সহজের কৌশল</h3>
+                <p>ডেবিট-ক্রেডিট ও জাবেদার ভয় দূর করতে শর্টকাট টেকনিক এবং প্র্যাকটিক্যাল শিট।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(255, 183, 3, 0.15); color: var(--primary-yellow);">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                </div>
+                <h3>নিয়মিত মডেল টেস্ট</h3>
+                <p>অধ্যায়ভিত্তিক ও ফাইনাল মডেল টেস্টের মাধ্যমে নিজেকে যাচাই করার সেরা সুযোগ।</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(230, 57, 70, 0.15); color: var(--primary-pink);">
+                    <i class="fa-solid fa-note-sticky"></i>
+                </div>
+                <h3>প্রিমিয়াম লেকচার শিট</h3>
+                <p>পরীক্ষার আগের রাতে রিভিশন দেওয়ার জন্য সহজ ভাষার তৈরি স্ট্যান্ডার্ড নোটস।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="section" id="courses">
+        <div class="section-title">
+            <h2>আমাদের কোর্সসমূহ</h2>
+            <p>তোমার একাডেমিক প্রয়োজনে উপযুক্ত কোর্সটি বেছে নাও</p>
+        </div>
+
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-tag">HSC 2025/2026</span>
+                    <h3>HSC Business Studies Full Batch</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Accounting, Finance, Management & Marketing</p>
+                </div>
+                <div class="course-body">
+                    <ul class="course-features">
+                        <li><i class="fa-solid fa-circle-check"></i> সম্পূর্ণ সিলেবাস কভার</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ৮০+ লাইভ ক্লাস ও রেকর্ডেড</li>
+                        <li><i class="fa-solid fa-circle-check"></i> অধ্যায়ভিত্তিক লেকচার শিট PDF</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ১৫+ মডেল টেস্ট</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="price">৳ ৩,৫০০</div>
+                        <a href="#contact" class="btn btn-outline">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-tag" style="background: var(--primary-orange);">Admission</span>
+                    <h3>Varsity 'C' Unit Admission Batch</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">DU, RU, CU, GST & Other Public Varsities</p>
+                </div>
+                <div class="course-body">
+                    <ul class="course-features">
+                        <li><i class="fa-solid fa-circle-check"></i> বিশ্ববিদ্যালয় প্রশ্ন ব্যাংক সমাধান</li>
+                        <li><i class="fa-solid fa-circle-check"></i> শর্টকাট ট্রিক্স & হ্যাকস</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ডেইলি ও উইকলি এক্সাম</li>
+                        <li><i class="fa-solid fa-circle-check"></i> স্পেশাল গাইডলাইন প্রোগ্রাম</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="price">৳ ৪,৫০০</div>
+                        <a href="#contact" class="btn btn-outline">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-tag" style="background: var(--primary-green); color: #000;">Special</span>
+                    <h3>Accounting & Finance Masterclass</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">শুধুমাত্র হিসাববিজ্ঞান ও অর্থায়ন বিষয়ের ওপর স্পেশাল ব্যাচ</p>
+                </div>
+                <div class="course-body">
+                    <ul class="course-features">
+                        <li><i class="fa-solid fa-circle-check"></i> বেসিক থেকে এডভান্সড কনসেপ্ট</li>
+                        <li><i class="fa-solid fa-circle-check"></i> গাণিতিক সমস্যার সহজ সমাধান</li>
+                        <li><i class="fa-solid fa-circle-check"></i> বিশেষ ডাউট ক্লিয়ারিং সেশন</li>
+                        <li><i class="fa-solid fa-circle-check"></i> প্র্যাকটিস শিট প্রদান</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="price">৳ ২,০০০</div>
+                        <a href="#contact" class="btn btn-outline">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="section" id="instructors">
+        <div class="section-title">
+            <h2>শিক্ষকদের সাথে পরিচিত হও</h2>
+            <p>তোমাদের সঠিক দিকনির্দেশনা দিতে নিয়োজিত রয়েছেন অভিজ্ঞ মেন্টরগণ</p>
+        </div>
+
+        <div class="courses-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="instructor-card">
+                <div class="instructor-avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Instructor">
+                </div>
+                <h3>Md. Habibullah</h3>
+                <p style="color: var(--primary-teal); font-weight: 500;">Founder & Lead Instructor</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Business Studies Specialist | 5+ Years Teaching Experience</p>
+            </div>
+
+            <div class="instructor-card">
+                <div class="instructor-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Instructor">
+                </div>
+                <h3>Accounting Expert</h3>
+                <p style="color: var(--primary-teal); font-weight: 500;">Senior Instructor</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Ex-Dhaka University | Management Specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Registration -->
+    <section class="section" id="contact">
+        <div class="contact-box">
+            <div>
+                <h2 style="font-size: 2rem; margin-bottom: 15px;">যোগাযোগ বা এনরোল করতে মেসেজ দাও</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">যেকোনো তথ্যের জন্য বা কোর্সে ভর্তির ব্যাপারে আমাদের সাথে সরাসরি কথা বলুন।</p>
+                
+                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                    <i class="fa-solid fa-phone" style="color: var(--primary-teal); font-size: 1.2rem;"></i>
+                    <span>+880 1700-000000</span>
+                </div>
+                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                    <i class="fa-solid fa-envelope" style="color: var(--primary-yellow); font-size: 1.2rem;"></i>
+                    <span>contact@habibsacademy.com</span>
+                </div>
+                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--primary-pink); font-size: 1.2rem;"></i>
+                    <span>Dhaka, Bangladesh</span>
+                </div>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার বার্তাটি আমরা পেয়েছি। খুব শীঘ্রই যোগাযোগ করা হবে।');">
+                <div class="form-group">
+                    <input type="text" placeholder="তোমার নাম" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="মোবাইল নম্বর" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="কোন কোর্সে আগ্রহী?" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="তোমার প্রশ্ন বা মেসেজ (যদি থাকে)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="margin-bottom: 15px; font-size: 1.3rem;">Habib's Academy</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">A Complete Solution For Business Studies. দেশের সকল বাণিজ্য বিভাগের শিক্ষার্থীদের নির্ভরযোগ্য অনলাইন প্ল্যাটফর্ম।</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style: none; margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                    <li style="margin-bottom: 8px;"><a href="#home" style="color: inherit; text-decoration: none;">Home</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#courses" style="color: inherit; text-decoration: none;">Courses</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#instructors" style="color: inherit; text-decoration: none;">Instructors</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#contact" style="color: inherit; text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Courses</h4>
+                <ul style="list-style: none; margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                    <li style="margin-bottom: 8px;">HSC Accounting</li>
+                    <li style="margin-bottom: 8px;">HSC Finance & Banking</li>
+                    <li style="margin-bottom: 8px;">HSC Business Management
+                    /Marketing</li>
+                    <li style="margin-bottom: 8px;">Varsity C-Unit Admission</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Habib's Academy. All Rights Reserved. Designed for Business Studies Success.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
